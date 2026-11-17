@@ -1,0 +1,15 @@
+.env
+.env.*
+!.env.example
+private/
+consents/
+raw-recordings/
+member-data/
+*.pem
+*.key
+.DS_Store
+node_modules/
+.next/
+out/
+.vercel/
+*.tsbuildinfo

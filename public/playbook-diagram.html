@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+  html, body { margin: 0; padding: 0; background: #ffffff; }
+  .canvas {
+    width: 1400px;
+    box-sizing: border-box;
+    padding: 28px 30px 30px 30px;
+    background: #ffffff;
+    font-family: 'DejaVu Sans', Arial, sans-serif;
+  }
+  .chain { display: flex; flex-wrap: nowrap; align-items: stretch; max-width: 100%; }
+  .stage { flex: 1 1 auto; min-width: 170px; max-width: 100%; display: flex; flex-direction: column; }
+  .stage + .stage { margin-left: 46px; position: relative; }
+  .stage + .stage::before {
+    content: '';
+    position: absolute;
+    left: -34px; top: 74px;
+    width: 26px; height: 2.5px;
+    background: #1a4a7a;
+  }
+  .stage + .stage::after {
+    content: '';
+    position: absolute;
+    left: -12px; top: 69px;
+    width: 0; height: 0;
+    border-top: 6px solid transparent;
+    border-bottom: 6px solid transparent;
+    border-left: 10px solid #1a4a7a;
+  }
+  .kick { font-size: 18px; letter-spacing: 3px; color: #2d7ab3; font-weight: 700; text-transform: uppercase; margin-bottom: 10px; }
+  .node {
+    background: #e4ecf5;
+    border: 1.5px solid #2d7ab3;
+    border-radius: 10px;
+    padding: 16px 18px 14px 18px;
+    box-sizing: border-box;
+    min-height: 190px;
+  }
+  .sys { font-size: 15px; color: #5a7a96; font-family: 'DejaVu Sans Mono', monospace; margin-bottom: 8px; }
+  .ttl { font-size: 26px; font-weight: 700; color: #142840; line-height: 1.2; margin-bottom: 10px; }
+  .map { font-size: 19px; color: #2d7ab3; font-weight: 700; margin-bottom: 8px; }
+  .dsc { font-size: 19px; color: #33506b; line-height: 1.45; }
+</style>
+</head>
+<body>
+<div class="canvas">
+  <div class="chain">
+    <div class="stage">
+      <div class="kick">01 / Power On</div>
+      <div class="node">
+        <div class="sys">ACPI - FIRMWARE</div>
+        <div class="ttl">Identity</div>
+        <div class="map">= Shared visual language</div>
+        <div class="dsc">One name, one logo, one voice for everything the council ships.</div>
+      </div>
+    </div>
+    <div class="stage">
+      <div class="kick">02 / Firmware</div>
+      <div class="node">
+        <div class="sys">NVRAM - SECURE BOOT</div>
+        <div class="ttl">Association</div>
+        <div class="map">= Charter + council</div>
+        <div class="dsc">Governance kit decides what boots and what is refused.</div>
+      </div>
+    </div>
+    <div class="stage">
+      <div class="kick">03 / Boot Manager</div>
+      <div class="node">
+        <div class="sys">HUB - ENTRY POINT</div>
+        <div class="ttl">Hub</div>
+        <div class="map">= One URL, one menu</div>
+        <div class="dsc">Routes newcomers to the right program instead of three separate sites.</div>
+      </div>
+    </div>
+    <div class="stage">
+      <div class="kick">04 / Kernel + Initramfs</div>
+      <div class="node">
+        <div class="sys">WORKSHOPS - PILOT</div>
+        <div class="ttl">Programs</div>
+        <div class="map">= Workshop Zero + Bootcraft</div>
+        <div class="dsc">The two working series load first; more programs mount later.</div>
+      </div>
+    </div>
+    <div class="stage">
+      <div class="kick">05 / User Space</div>
+      <div class="node">
+        <div class="sys">OUTPUT WALL - ALUMNI</div>
+        <div class="ttl">Community</div>
+        <div class="map">= Outputs, mentors, podcast</div>
+        <div class="dsc">Every cohort logs in here: artifacts, mentors, demo day.</div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
