@@ -45,7 +45,6 @@ const PROGRAMS = [
     status: { label: "وب‌سایت آموزشی منتشرشده", live: true },
     href: "/programs/crypto-hype/",
     cta: "جزئیات مسیر و تمرین‌ها",
-    internal: true,
   },
   {
     code: "NEXT",
@@ -207,7 +206,7 @@ export default function HubPage() {
                 ))}
               </ul>
               {program.href ? (
-                program.internal ? (
+                program.href === "/programs/crypto-hype/" ? (
                   <Link
                     href={program.href}
                     className="mt-6 inline-flex items-center gap-2 text-sm font-bold text-[#4FBFAE] hover:underline"
