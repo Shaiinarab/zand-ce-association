@@ -1,6 +1,8 @@
 import type { MetadataRoute } from "next";
 import { getAllDocs } from "@/lib/content";
 
+export const dynamic = "force-static";
+
 const SITE_ROOT = `${(process.env.NEXT_PUBLIC_SITE_URL ?? "https://shaiinarab.github.io/zand-ce-association").replace(/\/+$/, "")}/`;
 
 export default function sitemap(): MetadataRoute.Sitemap {
