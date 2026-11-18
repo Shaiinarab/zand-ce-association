@@ -10,9 +10,11 @@ permissions:
   pages: write
   id-token: write
 
+# Do not cancel an in-progress Pages deployment: cancellation can leave
+# GitHub Pages stuck with a stale deployment and block subsequent releases.
 concurrency:
   group: pages
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   build:
@@ -34,14 +36,22 @@ jobs:
       - name: Install
         run: npm ci
 
+      - name: Validate content
+        run: npm run check
+
       - name: Build static export
         run: npm run build
         env:
           NEXT_PUBLIC_SITE_URL: ${{ steps.pages.outputs.base_url }}
           NEXT_PUBLIC_BASE_PATH: ${{ steps.pages.outputs.base_path }}
 
-      - name: Disable Jekyll
-        run: touch out/.nojekyll
+      - name: Verify static export
+        run: |
+          test -s out/index.html
+          test -s out/.nojekyll || touch out/.nojekyll
+          test -d out/docs
+          test -d out/roadmap
+          test -d out/terminal
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
