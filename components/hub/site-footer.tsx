@@ -2,6 +2,7 @@ import Link from "next/link";
 
 const WZ_URL = "https://shaiinarab.github.io/workshop-zero/index.html";
 const BC_URL = "https://bootcraft-workshops.vercel.app/";
+const CRYPTO_URL = "https://shaiinarab.github.io/crypto-hype-last-drops/";
 
 export function SiteFooter() {
   return (
@@ -24,6 +25,9 @@ export function SiteFooter() {
             className="hover:text-[#4FBFAE]"
           >
             بوت‌کرفت ↗
+          </a>
+          <a href={CRYPTO_URL} target="_blank" rel="noopener noreferrer" className="hover:text-[#4FBFAE]">
+            آخرین قطرات هایپ ↗
           </a>
           <Link href="/docs/" className="hover:text-[#4FBFAE]">
             سندهای انجمن

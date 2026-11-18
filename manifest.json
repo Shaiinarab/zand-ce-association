@@ -1,24 +1,26 @@
 {
-  "version": "0.2",
+  "version": "0.3",
   "created": "2026-11-16",
-  "updated": "2026-11-17",
+  "updated": "2026-11-18",
   "status": "draft-not-institutionally-approved",
   "site": {
     "name": "Zand CE Hub",
     "entrypoints": [
       "app/page.tsx",
+      "app/programs/crypto-hype/page.tsx",
       "app/docs/page.tsx",
       "app/roadmap/page.tsx",
-      "app/terminal/page.tsx"
+      "app/terminal/page.tsx",
+      "app/sitemap.ts",
+      "app/robots.ts"
     ],
     "build": "npm run build",
     "export_dir": "out",
     "deploy_targets": [
-      "vercel",
       "github-pages"
     ]
   },
-  "file_count_excluding_manifest": 60,
+  "file_count_excluding_manifest": 64,
   "files": [
     ".github/ISSUE_TEMPLATE/activity-proposal.md",
     ".github/ISSUE_TEMPLATE/retrospective.md",
@@ -34,6 +36,7 @@
     "02-workshops/safety-checklist.md",
     "02-workshops/workshop-01.md",
     "02-workshops/workshop-02.md",
+    "02-workshops/workshop-03-last-drops.md",
     "03-podcast/consent-review-checklist.md",
     "03-podcast/pilot.md",
     "04-alumni-mentoring/program.md",
@@ -55,7 +58,10 @@
     "app/layout.tsx",
     "app/not-found.tsx",
     "app/page.tsx",
+    "app/programs/crypto-hype/page.tsx",
     "app/roadmap/page.tsx",
+    "app/robots.ts",
+    "app/sitemap.ts",
     "app/terminal/page.tsx",
     "components/hub/copy-link.tsx",
     "components/hub/doc-filter.tsx",

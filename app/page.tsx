@@ -5,12 +5,13 @@ import { getGroupsWithDocs, getRoadmap, getStats } from "@/lib/content";
 
 const WZ_URL = "https://shaiinarab.github.io/workshop-zero/index.html";
 const BC_URL = "https://bootcraft-workshops.vercel.app/";
+const CRYPTO_URL = "https://shaiinarab.github.io/crypto-hype-last-drops/";
 
 const BOOT_LINES = [
   { n: "01", sys: "POWER ON", fa: "هویت مشترک — یک نام، یک زبان بصری" },
   { n: "02", sys: "FIRMWARE", fa: "منشور و شورا — تصمیم می‌گیرد چه چیزی بوت شود" },
   { n: "03", sys: "BOOT MANAGER", fa: "همین پورتال — مسیریابی به برنامه‌ها و سندها" },
-  { n: "04", sys: "KERNEL + INITRAMFS", fa: "کارگاه صفر + بوت‌کرفت — هسته اجرایی" },
+  { n: "04", sys: "KERNEL + INITRAMFS", fa: "سه برنامه مستقل — هسته اجرایی" },
   { n: "05", sys: "USER SPACE", fa: "دیوار خروجی، منتورها، پادکست" },
 ];
 
@@ -34,6 +35,17 @@ const PROGRAMS = [
     status: { label: "فعال · آماده اجرا", live: true },
     href: BC_URL,
     cta: "ورود به بوت‌کرفت",
+  },
+  {
+    code: "CRYPTO",
+    tag: "BLOCKCHAIN / DEFI LAB",
+    title: "آخرین قطرات هایپ ارز دیجیتال",
+    desc: "بلاکچین را بعد از فروکش‌کردن هیجان بررسی کن: از اجماع و تراکنش تا DeFi، استخرهای نقدینگی و خواندن داده‌های آن‌چین؛ بدون اتصال کیف پول و بدون سیگنال معاملاتی.",
+    meta: ["۲٫۵ ساعت: بنیاد بلاکچین", "۳ ساعت: DeFi و اقتصاد پروتکل", "۲ ساعت اختیاری: هوشمندی آن‌چین"],
+    status: { label: "وب‌سایت آموزشی منتشرشده", live: true },
+    href: "/programs/crypto-hype/",
+    cta: "جزئیات مسیر و تمرین‌ها",
+    internal: true,
   },
   {
     code: "NEXT",
@@ -71,15 +83,15 @@ export default function HubPage() {
               ZAND CE / PROGRAM HUB — 002
             </p>
             <h1 className="text-4xl font-black leading-[1.3] md:text-5xl">
-              از یک در وارد شو؛
+              سه مسیر عملی؛
               <br />
-              سه برنامه در راه است.
+              یک درگاه مشترک.
             </h1>
             <p className="mt-5 max-w-xl text-base leading-8 text-[#8FA3B0]">
-              انجمن مهندسی کامپیوتر موسسه آموزش عالی زند شیراز یک اکوسیستم است، نه چند
-              سایت پراکنده: منشور و شورا تصمیم می‌گیرند، این پورتال مسیریابی می‌کند،
-              کارگاه صفر و بوت‌کرفت اجرا می‌کنند و دیوار خروجی ثابت می‌کند که اتفاق
-              افتاده.
+              انجمن مهندسی کامپیوتر مؤسسه آموزش عالی زند شیراز یک اکوسیستم یادگیری
+              دانشجومحور است: این پورتال مسیرها و سندها را یک‌جا می‌آورد؛ کارگاه صفر،
+              بوت‌کرفت و آخرین قطرات هایپ سه تجربه عملی مستقل‌اند؛ دیوار خروجی هم جای
+              نمایش دستاوردهای قابل بررسی است.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <a
@@ -98,6 +110,12 @@ export default function HubPage() {
               >
                 مسیر سیستم‌ها — بوت‌کرفت
               </a>
+              <Link
+                href="/programs/crypto-hype/"
+                className="rounded-md border border-[#4FBFAE]/30 px-5 py-3 text-sm font-bold text-[#DFE7EE] transition-colors hover:border-[#4FBFAE] hover:bg-[#4FBFAE]/10"
+              >
+                مسیر بلاکچین — آخرین قطرات هایپ
+              </Link>
               <Link
                 href="/docs/"
                 className="rounded-md px-5 py-3 text-sm text-[#8FA3B0] underline-offset-4 hover:text-[#DFE7EE] hover:underline"
@@ -150,13 +168,13 @@ export default function HubPage() {
       <section id="programs" className="mx-auto max-w-6xl px-5 py-16">
         <p className="hub-mono mb-2 text-xs tracking-[0.3em] text-[#4FBFAE]">01 / PROGRAMS</p>
         <h2 className="text-2xl font-black md:text-3xl">
-          دو برنامه فعال؛ یک جایگاه خالی صادقانه.
+          سه برنامه اجرایی؛ یک جایگاه آینده صادقانه.
         </h2>
         <p className="mt-3 max-w-2xl text-sm leading-7 text-[#8FA3B0]">
-          هیچ برنامه‌ای بدون مسئول، مجوز و حداقل پشتیبانی شروع نمی‌شود؛ به همین دلیل
-          جایگاه سوم خالی است، نه پنهان.
+          سه مسیر مستقل با خروجی‌های مشخص در دسترس‌اند. برنامه‌های آینده فقط پس از
+          تعیین مسئول، مجوز و حداقل پشتیبانی به این فهرست اضافه می‌شوند.
         </p>
-        <div className="mt-8 grid gap-5 md:grid-cols-3">
+        <div className="mt-8 grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
           {PROGRAMS.map((program) => (
             <article
               key={program.code}
@@ -189,15 +207,25 @@ export default function HubPage() {
                 ))}
               </ul>
               {program.href ? (
-                <a
-                  href={program.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-6 inline-flex items-center gap-2 text-sm font-bold text-[#4FBFAE] hover:underline"
-                >
-                  {program.cta}
-                  <span aria-hidden>↗</span>
-                </a>
+                program.internal ? (
+                  <Link
+                    href={program.href}
+                    className="mt-6 inline-flex items-center gap-2 text-sm font-bold text-[#4FBFAE] hover:underline"
+                  >
+                    {program.cta}
+                    <span aria-hidden>→</span>
+                  </Link>
+                ) : (
+                  <a
+                    href={program.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-6 inline-flex items-center gap-2 text-sm font-bold text-[#4FBFAE] hover:underline"
+                  >
+                    {program.cta}
+                    <span aria-hidden>↗</span>
+                  </a>
+                )
               ) : (
                 <span className="mt-6 inline-flex items-center gap-2 text-sm text-[#5A7A96]">
                   پس از تأیید شورا لینک می‌گیرد

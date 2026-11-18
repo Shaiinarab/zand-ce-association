@@ -7,6 +7,7 @@ const INTERESTS = [
   "مسیر Builder — کارگاه صفر",
   "مسیر Research — کارگاه صفر",
   "بوت‌کرفت — نصب و بازیابی سیستم",
+  "آخرین قطرات هایپ — بلاکچین و DeFi",
   "منتورینگ یا پادکست",
   "هنوز مطمئن نیستم",
 ];
@@ -32,12 +33,13 @@ export function JoinForm() {
         aria-live="polite"
       >
         <p className="text-lg font-bold text-[#4FBFAE]">
-          ثبت علاقه‌مندی دریافت شد، {name ? name : "هم‌دانشجویی عزیز"}.
+          پیش‌نمایش محلی آماده است؛ چیزی ارسال نشد.
         </p>
         <p className="mt-2 text-sm leading-7 text-[#8FA3B0]">
-          این نسخه پیش‌نمایش است و داده‌ای جایی ارسال نمی‌شود؛ در انتشار نهایی، همین فرم به
-          یک Google Forms گروهی متصل می‌شود و پاسخ‌ها طبق سند privacy-and-ai فقط برای
-          مسئول هماهنگی قابل مشاهده است. تا آن زمان: کانال تلگرام انجمن را دنبال کن.
+          {name ? `نام انتخابی: ${name}. ` : ""}
+          مسیر انتخابی: {interest}. این فرم صرفاً نمایشی است؛ اطلاعاتی ذخیره نمی‌شود و
+          هیچ‌کس در انجمن پاسخی از آن دریافت نمی‌کند. برای ثبت‌نام واقعی، اطلاعیه رسمی
+          هر برنامه را دنبال کن.
         </p>
       </div>
     );
@@ -72,7 +74,8 @@ export function JoinForm() {
             id="hub-contact"
             value={contact}
             onChange={(e) => setContact(e.target.value)}
-            autoComplete="email"
+            type="text"
+            autoComplete="off"
             dir="ltr"
             className="w-full rounded-md border border-[#4FBFAE]/20 bg-[#0B111A] px-3 py-2.5 text-sm text-[#DFE7EE] outline-none transition-colors focus:border-[#4FBFAE]"
             placeholder="@username"
@@ -114,7 +117,7 @@ export function JoinForm() {
         type="submit"
         className="mt-6 w-full rounded-md bg-[#4FBFAE] px-5 py-3 text-sm font-black text-[#0B111A] transition-transform hover:scale-[1.01]"
       >
-        ثبت علاقه‌مندی (پیش‌نمایش)
+        نمایش پیش‌نمایش محلی (بدون ارسال)
       </button>
       <p className="mt-3 text-xs leading-6 text-[#5A7A96]">
         هیچ داده‌ای در این پیش‌نمایش ذخیره یا ارسال نمی‌شود. حداقل‌گرایی داده: فقط همین
