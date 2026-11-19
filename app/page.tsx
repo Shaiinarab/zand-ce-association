@@ -4,7 +4,7 @@ import { asset } from "@/lib/base";
 import { getGroupsWithDocs, getRoadmap, getStats } from "@/lib/content";
 
 const WZ_URL = "https://shaiinarab.github.io/workshop-zero/index.html";
-const BC_URL = "https://bootcraft-workshops.vercel.app/";
+const BC_URL = "https://shaiinarab.github.io/bootcraft-workshops/";
 const CRYPTO_URL = "https://shaiinarab.github.io/crypto-hype-last-drops/";
 
 const BOOT_LINES = [
@@ -22,7 +22,7 @@ const PROGRAMS = [
     title: "کارگاه صفر",
     desc: "آزمایشگاه کاربردی هوش مصنوعی؛ یک هسته مشترک و سه مسیر تخصصی برای آفرینش دیجیتال، توسعه نرم‌افزار و پژوهش. هر جلسه با یک خروجی قابل بررسی تمام می‌شود.",
     meta: ["هسته مشترک F1 · F2", "۳ مسیر تخصصی", "۱۶ کارگاه"],
-    status: { label: "فعال · در انتظار پایلوت", live: true },
+    status: { label: "پیشنهاد آماده · پایلوت در انتظار تأیید", live: false },
     href: WZ_URL,
     cta: "ورود به کارگاه صفر",
   },
@@ -32,7 +32,7 @@ const PROGRAMS = [
     title: "بوت‌کرفت",
     desc: "از فشردن Power تا کنترل کامل سیستم؛ سه ایستگاه عملی روی فریم‌ور، نصب و بازیابی. قانون طلایی: اول Snapshot، بعد آزمایش.",
     meta: ["۳ ایستگاه آزمایشگاهی", "سیاست ایمنی ۶ بندی", "۱۰ تا ۱۶ نفر در هر گروه"],
-    status: { label: "فعال · آماده اجرا", live: true },
+    status: { label: "محتوا آماده · اجرا نیازمند تأیید", live: false },
     href: BC_URL,
     cta: "ورود به بوت‌کرفت",
   },
@@ -42,7 +42,7 @@ const PROGRAMS = [
     title: "آخرین قطرات هایپ ارز دیجیتال",
     desc: "بلاکچین را بعد از فروکش‌کردن هیجان بررسی کن: از اجماع و تراکنش تا DeFi، استخرهای نقدینگی و خواندن داده‌های آن‌چین؛ بدون اتصال کیف پول و بدون سیگنال معاملاتی.",
     meta: ["۲٫۵ ساعت: بنیاد بلاکچین", "۳ ساعت: DeFi و اقتصاد پروتکل", "۲ ساعت اختیاری: هوشمندی آن‌چین"],
-    status: { label: "وب‌سایت آموزشی منتشرشده", live: true },
+    status: { label: "محتوای آموزشی آماده", live: false },
     href: "/programs/crypto-hype/",
     cta: "جزئیات مسیر و تمرین‌ها",
   },
