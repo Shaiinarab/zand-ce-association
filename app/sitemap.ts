@@ -12,6 +12,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "docs/",
     "roadmap/",
     "terminal/",
+    "programs/",
     "programs/crypto-hype/",
     ...getAllDocs().map((doc) => `docs/${doc.group}/${doc.slug}/`),
   ];
