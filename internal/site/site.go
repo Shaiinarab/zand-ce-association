@@ -80,10 +80,10 @@ func Export(root, out, base, siteURL string) error {
 	out, _ = filepath.Abs(out)
 	if err := os.RemoveAll(out); err != nil { return err }
 	if err := os.MkdirAll(out, 0755); err != nil { return err }
-	for _, asset := range []string{"site.css", "app.js"} {
-		src := filepath.Join(root, "web", "static", asset)
+	for _, asset := range []struct{ source, name string }{{"site.css", "site.css"}, {"js/app.js", "app.js"}} {
+		src := filepath.Join(root, "web", "static", filepath.FromSlash(asset.source))
 		data, err := os.ReadFile(src); if err != nil { return fmt.Errorf("read asset %s: %w", src, err) }
-		if err := write(out, "assets/"+asset, string(data)); err != nil { return err }
+		if err := write(out, "assets/"+asset.name, string(data)); err != nil { return err }
 	}
 	if err := write(out, ".nojekyll", ""); err != nil { return err }
 
