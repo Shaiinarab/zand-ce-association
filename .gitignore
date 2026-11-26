@@ -14,4 +14,4 @@ out/
 dist/
 .vercel/
 *.tsbuildinfo
-web/static/app.js
+web/static/js/
