@@ -20,7 +20,7 @@
       "github-pages"
     ]
   },
-  "file_count_excluding_manifest": 72,
+  "file_count_excluding_manifest": 73,
   "files": [
     ".github/ISSUE_TEMPLATE/activity-proposal.md",
     ".github/ISSUE_TEMPLATE/retrospective.md",
@@ -32,6 +32,7 @@
     "00-governance/roles.md",
     "01-orientation/run-of-show.md",
     "01-orientation/slides-outline.md",
+    "02-workshops/README.md",
     "02-workshops/curriculum.md",
     "02-workshops/path-ctf.md",
     "02-workshops/path-cybersecurity.md",
