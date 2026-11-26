@@ -11,5 +11,7 @@ member-data/
 node_modules/
 .next/
 out/
+dist/
 .vercel/
 *.tsbuildinfo
+web/static/js/

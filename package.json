@@ -1,29 +1,12 @@
 {
   "name": "zand-ce-hub",
-  "version": "0.2.0",
+  "version": "0.4.0",
   "private": true,
-  "description": "Persian-first Zand Computer Engineering Association program hub",
+  "description": "Persian-first learning hub powered by Go, htmx 4 and TypeScript 7",
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "preview": "npx --yes serve out",
     "check": "node scripts/check-content.mjs",
-    "typecheck": "tsc --noEmit"
-  },
-  "dependencies": {
-    "@fontsource-variable/vazirmatn": "5.3.0",
-    "marked": "18.2.1",
-    "next": "15.5.29",
-    "react": "19.3.1",
-    "react-dom": "19.3.1"
-  },
-  "devDependencies": {
-    "@tailwindcss/postcss": "4.3.5",
-    "@types/node": "^24.0.0",
-    "@types/react": "19.3.0",
-    "@types/react-dom": "^19.0.0",
-    "tailwindcss": "4.3.5",
-    "typescript": "5.9.3"
+    "typecheck": "npx --yes --package=typescript@7.0.2 tsc --noEmit",
+    "build:assets": "npx --yes --package=typescript@7.0.2 tsc --noEmit false --rootDir web/static/ts --outDir web/static/js",
+    "build": "npm run check && npm run typecheck && npm run build:assets && go run ./cmd/export -out dist"
   }
 }

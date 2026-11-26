@@ -1,4 +1,4 @@
-name: Deploy Zand CE Hub to GitHub Pages
+name: Build and deploy Zand CE Hub
 
 on:
   push:
@@ -10,8 +10,6 @@ permissions:
   pages: write
   id-token: write
 
-# Do not cancel an in-progress Pages deployment: cancellation can leave
-# GitHub Pages stuck with a stale deployment and block subsequent releases.
 concurrency:
   group: pages
   cancel-in-progress: false
@@ -22,50 +20,47 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-
+      - name: Setup Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: "1.27.4"
+          cache: true
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: 22
-          cache: npm
-
       - name: Configure Pages
         id: pages
         uses: actions/configure-pages@v5
         with:
           enablement: true
-
-      - name: Install
-        run: npm ci
-
-      - name: Validate content and repository manifest
+      - name: Install Go dependencies
+        run: go mod download
+      - name: Validate content
         run: npm run check
-
-      - name: TypeScript validation
+      - name: TypeScript 7 validation
         run: npm run typecheck
-
-      - name: Build static export
-        run: npm run build
-        env:
-          NEXT_PUBLIC_SITE_URL: ${{ steps.pages.outputs.base_url }}
-          NEXT_PUBLIC_BASE_PATH: ${{ steps.pages.outputs.base_path }}
-
-      - name: Verify static export
+      - name: Build TypeScript and static site
         run: |
-          test -s out/index.html
-          test -s out/.nojekyll || touch out/.nojekyll
-          test -d out/docs
-          test -d out/roadmap
-          test -d out/terminal
-          test -s out/programs/crypto-hype/index.html
-          test -s out/sitemap.xml
-          test -s out/robots.txt
-
-      - name: Upload artifact
+          npm run build:assets
+          go run ./cmd/export -out dist -base-path "${{ steps.pages.outputs.base_path }}" -site-url "${{ steps.pages.outputs.base_url }}"
+      - name: Verify generated site
+        run: |
+          test -s dist/index.html
+          test -s dist/programs/index.html
+          test -s dist/programs/crypto-hype/index.html
+          test -s dist/terminal/index.html
+          test -s dist/docs/workshops/software-engineering/index.html
+          test -s dist/docs/index.html
+          test -s dist/roadmap/index.html
+          test -s dist/sitemap.xml
+          test -s dist/robots.txt
+          test -s dist/assets/app.js
+          test -s dist/.nojekyll
+      - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: out
-
+          path: dist
   deploy:
     needs: build
     runs-on: ubuntu-latest
