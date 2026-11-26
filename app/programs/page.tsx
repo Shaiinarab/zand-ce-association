@@ -47,7 +47,7 @@ export default function ProgramsPage() {
             <p className="hub-mono text-xs tracking-[0.3em] text-[#4FBFAE]">PATH CATALOG / 001—010</p>
             <h2 className="mt-3 text-2xl font-black md:text-3xl">کاتالوگ مسیرها</h2>
           </div>
-          <Link href="/docs/workshops/" className="text-sm font-bold text-[#4FBFAE] hover:underline">همه طرح‌ها و اسناد ←</Link>
+          <Link href="/docs/" className="text-sm font-bold text-[#4FBFAE] hover:underline">مرور همه طرح‌ها و اسناد ←</Link>
         </div>
         <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
           {PATHS.map((path) => {
