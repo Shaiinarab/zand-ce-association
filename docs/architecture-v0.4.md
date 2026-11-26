@@ -31,7 +31,7 @@ Go is responsible for content inventory, page generation, metadata, sitemap and 
 
 ## Content model
 
-The seven content folders remain the source of truth. The ten learning paths are represented in the Go catalogue and link to their detailed Markdown curricula. External workshop repositories remain independent and are linked rather than copied.
+The seven content folders remain the source of truth. The ten learning paths are represented in the Go catalogue and link to their detailed Markdown curricula. External workshop repositories remain independent and are linked rather than copied. Compatibility pages retain the previous `/terminal/`, `/programs/<slug>/`, and `/docs/workshops/<slug>/` entry points.
 
 ## Hosting
 

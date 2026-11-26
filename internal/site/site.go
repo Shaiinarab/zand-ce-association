@@ -100,6 +100,22 @@ func Export(root, out, base, siteURL string) error {
 	programBody := fmt.Sprintf(`<section class="page-hero"><p class="eyebrow mono">ZAND CE / LEARNING PATHS</p><h1>مسیرت را پیدا کن.<br><em>بعد چیزی بساز.</em></h1><p class="hero-lead">ده مسیر از مبانی برنامه‌نویسی تا هوش مصنوعی، امنیت، شبکه و سیستم‌های تعاملی. وضعیت «طرح آموزشی» به معنی تصویب یا زمان‌بندی قطعی نیست.</p></section><section class="section"><div class="section-head"><div><p class="eyebrow mono">CATALOG / 001—010</p><h2>کاتالوگ مسیرها</h2></div><a class="text-link" href="%s/docs/">کتابخانه اسناد ←</a></div><div class="path-grid">%s</div></section>`, href(base,"/docs"), cards.String())
 	if err := write(out, "programs/index.html", shell(base, "مسیرهای یادگیری", "کاتالوگ مسیرهای یادگیری انجمن مهندسی کامپیوتر زند", programBody)); err != nil { return err }
 
+	// Keep stable URLs from the previous Next.js portal working after the migration.
+	for _, p := range Paths {
+		target := href(base, p.Href)
+		label := "مطالعه مسیر"
+		if p.External { label = "ورود به پروژه مستقل" }
+		compatBody := fmt.Sprintf(`<section class="page-hero"><p class="eyebrow mono">PROGRAM / %s</p><h1>%s</h1><p class="hero-lead">%s</p><a class="button primary" href="%s" rel="noopener noreferrer">%s ↗</a></section><section class="section"><a class="text-link" href="%s/programs/">بازگشت به کاتالوگ ←</a></section>`, esc(p.Code), esc(p.Title), esc(p.Description), esc(target), label, base)
+		if err := write(out, "programs/"+p.Slug+"/index.html", shell(base, p.Title, p.Description, compatBody)); err != nil { return err }
+		if !p.External {
+			legacyBody := fmt.Sprintf(`<section class="page-hero"><p class="eyebrow mono">LEGACY DOCUMENT ROUTE</p><h1>%s</h1><p class="hero-lead">این نشانی برای سازگاری با پیوندهای قدیمی نگه داشته شده است.</p><a class="button primary" href="%s">باز کردن سند اصلی ←</a></section>`, esc(p.Title), esc(target))
+			if err := write(out, "docs/workshops/"+p.Slug+"/index.html", shell(base, p.Title, p.Description, legacyBody)); err != nil { return err }
+		}
+	}
+
+	terminalBody := fmt.Sprintf(`<section class="page-hero"><p class="eyebrow mono">DOCUMENT EXPLORER</p><h1>مرورگر <em>اسناد</em></h1><p class="hero-lead">مرورگر قدیمی اسناد با کتابخانه یکپارچه جایگزین شده است. همه ۲۸ سند از منبع Markdown ساخته می‌شوند.</p><a class="button primary" href="%s/docs/">رفتن به کتابخانه اسناد ←</a></section>`, base)
+	if err := write(out, "terminal/index.html", shell(base, "مرورگر اسناد", "مرورگر اسناد انجمن", terminalBody)); err != nil { return err }
+
 	docsCards := ""
 	for _, group := range groups {
 		dir := filepath.Join(root, group)

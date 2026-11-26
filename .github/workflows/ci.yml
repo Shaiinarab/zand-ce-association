@@ -36,6 +36,9 @@ jobs:
         run: |
           test -s dist/index.html
           test -s dist/programs/index.html
+          test -s dist/programs/crypto-hype/index.html
+          test -s dist/terminal/index.html
+          test -s dist/docs/workshops/software-engineering/index.html
           test -s dist/docs/index.html
           test -s dist/roadmap/index.html
           test -s dist/docs/02-workshops/path-software-engineering/index.html
