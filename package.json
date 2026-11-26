@@ -6,7 +6,7 @@
   "scripts": {
     "check": "node scripts/check-content.mjs",
     "typecheck": "npx --yes --package=typescript@7.0.2 tsc --noEmit",
-    "build:assets": "npx --yes --package=typescript@7.0.2 tsc --noEmit false --outDir web/static",
+    "build:assets": "npx --yes --package=typescript@7.0.2 tsc --noEmit false --rootDir web/static/ts --outDir web/static/js",
     "build": "npm run check && npm run typecheck && npm run build:assets && go run ./cmd/export -out dist"
   }
 }
