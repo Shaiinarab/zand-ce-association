@@ -1,7 +1,7 @@
 {
   "version": "0.3",
   "created": "2026-11-16",
-  "updated": "2026-11-18",
+  "updated": "2026-11-26",
   "status": "draft-not-institutionally-approved",
   "site": {
     "name": "Zand CE Hub",
@@ -20,7 +20,7 @@
       "github-pages"
     ]
   },
-  "file_count_excluding_manifest": 64,
+  "file_count_excluding_manifest": 72,
   "files": [
     ".github/ISSUE_TEMPLATE/activity-proposal.md",
     ".github/ISSUE_TEMPLATE/retrospective.md",
@@ -33,6 +33,13 @@
     "01-orientation/run-of-show.md",
     "01-orientation/slides-outline.md",
     "02-workshops/curriculum.md",
+    "02-workshops/path-ctf.md",
+    "02-workshops/path-cybersecurity.md",
+    "02-workshops/path-game-development.md",
+    "02-workshops/path-iot-embedded.md",
+    "02-workshops/path-networking.md",
+    "02-workshops/path-robotics.md",
+    "02-workshops/path-software-engineering.md",
     "02-workshops/safety-checklist.md",
     "02-workshops/workshop-01.md",
     "02-workshops/workshop-02.md",
@@ -59,6 +66,7 @@
     "app/not-found.tsx",
     "app/page.tsx",
     "app/programs/crypto-hype/page.tsx",
+    "app/programs/page.tsx",
     "app/roadmap/page.tsx",
     "app/robots.ts",
     "app/sitemap.ts",
